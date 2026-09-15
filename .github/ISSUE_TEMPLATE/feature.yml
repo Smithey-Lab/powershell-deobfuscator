@@ -1,0 +1,10 @@
+name: Decoder enhancement
+description: Suggest a decoding pattern or explanation improvement.
+body:
+  - type: textarea
+    id: pattern
+    attributes:
+      label: Pattern and expected interpretation
+      description: Include an inert example and explain the intended semantics and limits.
+    validations:
+      required: true

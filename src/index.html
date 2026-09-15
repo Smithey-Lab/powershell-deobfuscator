@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Decode obfuscated PowerShell locally without executing commands or uploading payloads."
+    />
+    <title>PowerShell Deobfuscator — Smithey Lab</title>
+    <link rel="icon" href="./brand-logo.jpg" />
+    <link rel="stylesheet" href="./base.css" />
+    <link rel="stylesheet" href="./checker.css" />
+    <link rel="stylesheet" href="./powershell.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="wrap">
+      <a class="brand" href="https://smitheylab.com"
+        ><img src="./brand-logo.jpg" width="42" height="42" alt="SL" />Smithey
+        Lab</a
+      ><a href="https://github.com/Smithey-Lab/powershell-deobfuscator"
+        >Source on GitHub</a
+      >
+    </header>
+    <main id="main">
+      <section class="page-intro wrap checker-intro">
+        <span class="eyebrow">03 / STATIC SECURITY ANALYSIS</span>
+        <h1>PowerShell<br /><em>Deobfuscator.</em></h1>
+        <p>
+          Unpack the layers. Understand the clues.<br />Inspect suspicious
+          commands without running them.
+        </p>
+      </section>
+      <section class="wrap checker-workspace" aria-label="PowerShell analyzer">
+        <form id="ps-form" class="checker-console">
+          <div class="checker-console-top">
+            <span class="eyebrow">PASTE. DECODE. INSPECT.</span
+            ><span class="checker-badge">LOCAL ANALYSIS / NO UPLOAD</span>
+          </div>
+          <div class="field">
+            <label for="ps-input">PowerShell command or encoded payload</label
+            ><textarea
+              id="ps-input"
+              rows="12"
+              maxlength="32768"
+              required
+              spellcheck="false"
+              autocomplete="off"
+              autocapitalize="none"
+              aria-describedby="ps-help"
+              placeholder="Paste a suspicious command here…"
+            ></textarea
+            ><span id="ps-help" class="field-hint"
+              >Up to 32 KiB. Input stays in this tab and is not saved by the
+              tool.</span
+            >
+          </div>
+          <div class="checker-actions">
+            <button id="ps-run" class="button button-primary" type="submit">
+              Analyze command ↗</button
+            ><button
+              id="ps-example"
+              class="button checker-secondary"
+              type="button"
+            >
+              Load example</button
+            ><button
+              id="ps-clear"
+              class="button checker-secondary"
+              type="button"
+            >
+              Clear</button
+            ><span id="ps-status" role="status" aria-live="polite"
+              >Ready. Nothing will be executed.</span
+            >
+          </div>
+          <noscript
+            ><p>Enable JavaScript to analyze commands locally.</p></noscript
+          >
+        </form>
+        <aside class="checker-about">
+          <span class="eyebrow">UNDERSTAND THE EVIDENCE</span>
+          <h2>Less mystery.<br />More context.</h2>
+          <p>
+            Decode Base64, hex, and encoded text; expand gzip and deflate;
+            reconstruct nested formatting, joins, reversed indexes, character
+            arrays, literal XOR, and simple variable assignments. Inspect
+            behavior indicators with the text that triggered each finding.
+          </p>
+          <details open>
+            <summary>Privacy and analysis limits</summary>
+            <p>
+              Commands are processed locally in your browser. The analyzer does
+              not execute commands, upload submitted text, or visit extracted
+              URLs.
+            </p>
+            <p>
+              One analysis at a time, with a 5-second cooldown and 60 attempts
+              per hour in this browser. Only usage timestamps are stored; the
+              tool does not save command history. Downloading a report saves a
+              local copy that may contain sensitive text.
+            </p>
+            <p>
+              32 KiB input, 256 KiB total candidate text, 24 candidate layers, 8
+              decoding levels, and a 3-second worker cutoff. No automatic
+              retries.
+            </p>
+          </details>
+          <details>
+            <summary>What this cannot tell you</summary>
+            <p>
+              This is a static decoder, not a full PowerShell interpreter.
+              Environment values, custom aliases, complex control flow,
+              encrypted content, and remote payloads may prevent full
+              reconstruction. The report identifies known blockers. Matches can
+              occur in comments or strings; reconstructed candidates are not
+              guaranteed to behave identically to the original. No report
+              establishes that a command is safe.
+            </p>
+          </details>
+        </aside>
+      </section>
+      <section
+        id="ps-results"
+        class="wrap checker-results"
+        aria-labelledby="ps-title"
+        hidden
+      >
+        <div class="checker-results-heading">
+          <div>
+            <span class="eyebrow">ANALYSIS / EVIDENCE</span>
+            <h2 id="ps-title" tabindex="-1">Command analysis</h2>
+          </div>
+          <button
+            id="ps-download"
+            type="button"
+            class="button checker-secondary"
+          >
+            Download report
+          </button>
+        </div>
+        <p id="ps-summary"></p>
+        <div id="ps-cards" class="checker-result-grid"></div>
+      </section>
+    </main>
+    <footer class="wrap">
+      PowerShell Deobfuscator · Smithey Lab · Open source under the MIT license
+    </footer>
+    <script type="module" src="./powershell.js"></script>
+  </body>
+</html>

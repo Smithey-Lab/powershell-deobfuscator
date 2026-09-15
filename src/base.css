@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --mono: ui-monospace, SFMono-Regular, Consolas, monospace;
+  --sans: system-ui, sans-serif;
+}
+body {
+  margin: 0;
+  background: #f7faff;
+  color: #102443;
+  font-family: var(--sans);
+}
+a {
+  color: #1261b9;
+}
+.wrap {
+  width: min(1180px, calc(100% - 40px));
+  margin: auto;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 25px 0;
+  border-bottom: 1px solid #dae5ef;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 750;
+  color: #102443;
+  text-decoration: none;
+}
+.brand img {
+  border-radius: 8px;
+}
+.page-intro {
+  padding: 70px 0 35px;
+}
+.eyebrow {
+  font: 11px var(--mono);
+  letter-spacing: 2px;
+  color: #28658b;
+}
+h1 {
+  font-size: clamp(42px, 6vw, 80px);
+  letter-spacing: -3px;
+  line-height: 1.08;
+  margin: 22px 0;
+}
+h1 em {
+  font-style: normal;
+  color: #087f95;
+}
+.page-intro p {
+  font-size: 18px;
+  color: #53657e;
+  line-height: 1.7;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.field label {
+  font-weight: 650;
+  font-size: 14px;
+}
+.field-hint {
+  font-size: 12px;
+  color: #53657e;
+  line-height: 1.6;
+}
+.button {
+  display: inline-block;
+  padding: 15px 22px;
+  border-radius: 8px;
+  font: 600 14px var(--sans);
+  text-decoration: none;
+}
+.button-primary {
+  background: linear-gradient(100deg, #1755df, #087d9b);
+  color: white;
+}
+footer {
+  padding: 35px 0;
+  border-top: 1px solid #dae5ef;
+  color: #53657e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  background: #fff;
+  padding: 12px;
+  z-index: 2;
+}
+.skip-link:focus {
+  top: 8px;
+}
+:focus-visible {
+  outline: 3px solid #1764d9;
+  outline-offset: 4px;
+}
+@media (max-width: 500px) {
+  header {
+    align-items: flex-start;
+    font-size: 13px;
+  }
+  .brand {
+    white-space: nowrap;
+  }
+  .page-intro {
+    padding-top: 45px;
+  }
+  h1 {
+    letter-spacing: -2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,43 @@
+#ps-input {
+  box-sizing: border-box;
+  width: 100%;
+  resize: vertical;
+  min-height: 220px;
+  padding: 16px;
+  border: 1px solid #cbdcf0;
+  border-radius: 10px;
+  background: #081b32;
+  color: #c4f4eb;
+  font: 13px/1.7 var(--mono);
+  tab-size: 2;
+}
+#ps-input:focus-visible {
+  outline: 3px solid #1759df;
+  outline-offset: 3px;
+}
+#ps-summary {
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+#ps-cards details {
+  grid-column: 1/-1;
+  min-width: 0;
+}
+#ps-cards summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+#ps-cards li {
+  margin: 10px 0;
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+#ps-cards pre {
+  unicode-bidi: plaintext;
+}
+#ps-cards code {
+  overflow-wrap: anywhere;
+}
+#ps-title:focus {
+  outline-offset: 6px;
+}

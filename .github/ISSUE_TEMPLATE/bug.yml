@@ -1,0 +1,21 @@
+name: Bug report
+description: Report incorrect decoding or a UI problem. Use private reporting for vulnerabilities.
+body:
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal sanitized reproduction
+      description: Use inert text. Remove credentials, personal data, and live infrastructure.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and version or commit
