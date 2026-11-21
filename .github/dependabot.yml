@@ -5,12 +5,24 @@ updates:
     target-branch: dev
     schedule:
       interval: weekly
+      day: monday
     open-pull-requests-limit: 5
     groups:
-      development-tools:
-        patterns: ["*"]
+      # Minor and patch in one PR; majors stay separate for review.
+      npm-minor-patch:
+        update-types: [minor, patch]
+
   - package-ecosystem: github-actions
     directory: /
     target-branch: dev
     schedule:
       interval: weekly
+      day: monday
+    groups:
+      # CodeQL init and analyze must always land together, majors included.
+      codeql-action:
+        patterns: ["github/codeql-action*"]
+      # Other actions: minor and patch in one PR; majors stay separate.
+      actions-minor-patch:
+        patterns: ["*"]
+        update-types: [minor, patch]
